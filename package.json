@@ -38,7 +38,8 @@
           "items": {
             "type": "string"
           },
-          "default": []
+          "default": [],
+          "scope": "resource"
         }
       }
     }
