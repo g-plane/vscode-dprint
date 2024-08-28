@@ -40,9 +40,20 @@
           },
           "default": [],
           "scope": "resource"
+        },
+        "dprint.newConfigFileName": {
+          "description": "File name of new dprint configuration file when creating.",
+          "type": "string",
+          "default": "dprint.json"
         }
       }
-    }
+    },
+    "commands": [
+      {
+        "command": "dprint.configInit",
+        "title": "dprint: Create dprint Configuration File"
+      }
+    ]
   },
   "scripts": {
     "vscode:prepublish": "pnpm lint && pnpm build",
