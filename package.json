@@ -1,0 +1,62 @@
+{
+  "name": "dprint",
+  "displayName": "dprint",
+  "description": "Yet another dprint formatter extension.",
+  "author": "Pig Fang <g-plan@hotmail.com>",
+  "publisher": "gplane",
+  "license": "MIT",
+  "version": "0.0.0",
+  "engines": {
+    "vscode": "^1.92.0"
+  },
+  "categories": [
+    "Formatters"
+  ],
+  "main": "./dist/extension.js",
+  "activationEvents": [
+    "workspaceContains:**/{dprint,.dprint}.{json,jsonc}"
+  ],
+  "contributes": {
+    "configuration": {
+      "title": "dprint",
+      "properties": {
+        "dprint.executablePath.unix": {
+          "description": "The path to the dprint executable on Unix-like OS.",
+          "type": "string",
+          "default": "",
+          "ignoreSync": true
+        },
+        "dprint.executablePath.win": {
+          "description": "The path to the dprint executable on Windows.",
+          "type": "string",
+          "default": "",
+          "ignoreSync": true
+        },
+        "dprint.additionalFilePatterns": {
+          "description": "Additional file Glob patterns to format.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm lint && pnpm build",
+    "build": "esbuild ./src/extension.ts --bundle --platform=node --outdir=dist --external:vscode",
+    "watch": "pnpm build --watch",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^9.0.1"
+  },
+  "devDependencies": {
+    "@gplane/tsconfig": "^6.2.0",
+    "@types/node": "^22.5.0",
+    "@types/vscode": "^1.92.0",
+    "esbuild": "^0.21.5",
+    "typescript": "^5.4.5"
+  }
+}
