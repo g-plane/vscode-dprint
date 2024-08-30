@@ -13,6 +13,8 @@
     "Formatters"
   ],
   "main": "./dist/extension.js",
+  "icon": "icon.png",
+  "extensionKind": ["workspace"],
   "activationEvents": [
     "workspaceContains:**/{dprint,.dprint}.{json,jsonc}"
   ],
