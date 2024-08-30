@@ -4,6 +4,7 @@
   "description": "Nice-featured VS Code extension for dprint formatter.",
   "author": "Pig Fang <g-plan@hotmail.com>",
   "publisher": "gplane",
+  "repository": "g-plane/vscode-dprint",
   "license": "MIT",
   "version": "1.0.1",
   "engines": {
