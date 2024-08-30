@@ -7,10 +7,6 @@ settings:
 importers:
 
   .:
-    dependencies:
-      vscode-languageclient:
-        specifier: ^9.0.1
-        version: 9.0.1
     devDependencies:
       '@gplane/tsconfig':
         specifier: ^6.2.0
@@ -19,7 +15,7 @@ importers:
         specifier: ^22.5.0
         version: 22.5.0
       '@types/vscode':
-        specifier: ^1.92.0
+        specifier: ^1.90.0
         version: 1.92.0
       esbuild:
         specifier: ^0.21.5
@@ -27,6 +23,9 @@ importers:
       typescript:
         specifier: ^5.4.5
         version: 5.5.4
+      vscode-languageclient:
+        specifier: ^9.0.1
+        version: 9.0.1
 
 packages:
 
