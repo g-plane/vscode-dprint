@@ -16,7 +16,13 @@ export async function activate(context: vscode.ExtensionContext) {
   }
 
   context.subscriptions.push(
-    vscode.commands.registerCommand('dprint.configInit', commandConfigInit)
+    vscode.commands.registerCommand('dprint.configInit', async () => {
+      if (await commandConfigInit()) {
+        const client = await setupLspClient(outputChannel)
+        client.start()
+        context.subscriptions.push(client)
+      }
+    })
   )
 }
 

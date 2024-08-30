@@ -1,9 +1,9 @@
 import * as vscode from 'vscode'
 
-export async function commandConfigInit() {
+export async function commandConfigInit(): Promise<boolean> {
   const workspace = await vscode.window.showWorkspaceFolderPick()
   if (!workspace) {
-    return
+    return false
   }
 
   const configFiles = await vscode.workspace.findFiles(
@@ -15,7 +15,7 @@ export async function commandConfigInit() {
     vscode.window.showInformationMessage(
       'There is already a dprint configuration file in this workspace.'
     )
-    return
+    return false
   }
 
   const pickedPlugins = await vscode.window.showQuickPick<PickItem>(
@@ -39,7 +39,7 @@ export async function commandConfigInit() {
   )
 
   if (!pickedPlugins || pickedPlugins.length === 0) {
-    return
+    return false
   }
   const pluginURLs: string[] = []
   const config = pickedPlugins.reduce<Record<string, {}>>(
@@ -50,13 +50,15 @@ export async function commandConfigInit() {
     },
     {}
   )
-  vscode.workspace.fs.writeFile(
+  await vscode.workspace.fs.writeFile(
     vscode.Uri.joinPath(
       workspace.uri,
       vscode.workspace.getConfiguration('dprint').get<string>('newConfigFileName', 'dprint.json')
     ),
     new TextEncoder().encode(JSON.stringify({ ...config, plugins: pluginURLs }, null, 2) + '\n')
   )
+
+  return true
 }
 
 type PickItem = vscode.QuickPickItem & { plugin: Plugin }
