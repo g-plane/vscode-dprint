@@ -1,5 +1,6 @@
 import * as os from 'node:os'
 import * as vscode from 'vscode'
+import which from 'which'
 
 export async function findExecutable() {
   const [binFromNode] = await vscode.workspace.findFiles(
@@ -12,7 +13,8 @@ export async function findExecutable() {
   }
 
   const configuration = vscode.workspace.getConfiguration('dprint')
-  return os.platform() === 'win32'
+  const path = os.platform() === 'win32'
     ? (configuration.get<string>('executablePath.win') || 'dprint.exe')
     : (configuration.get<string>('executablePath.unix') || 'dprint')
+  return which(path)
 }

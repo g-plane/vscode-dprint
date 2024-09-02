@@ -17,6 +17,9 @@ importers:
       '@types/vscode':
         specifier: ^1.90.0
         version: 1.92.0
+      '@types/which':
+        specifier: ^3.0.4
+        version: 3.0.4
       esbuild:
         specifier: ^0.21.5
         version: 0.21.5
@@ -26,6 +29,9 @@ importers:
       vscode-languageclient:
         specifier: ^9.0.1
         version: 9.0.1
+      which:
+        specifier: ^4.0.0
+        version: 4.0.0
 
 packages:
 
@@ -176,6 +182,9 @@ packages:
   '@types/vscode@1.92.0':
     resolution: {integrity: sha512-DcZoCj17RXlzB4XJ7IfKdPTcTGDLYvTOcTNkvtjXWF+K2TlKzHHkBEXNWQRpBIXixNEUgx39cQeTFunY0E2msw==}
 
+  '@types/which@3.0.4':
+    resolution: {integrity: sha512-liyfuo/106JdlgSchJzXEQCVArk0CvevqPote8F8HgWgJ3dRCcTHgJIsLDuee0kxk/mhbInzIZk3QWSZJ8R+2w==}
+
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
 
@@ -186,6 +195,10 @@ packages:
     resolution: {integrity: sha512-mg3OPMV4hXywwpoDxu3Qda5xCKQi+vCTZq8S9J/EpkhB2HzKXq4SNFZE3+NK93JYxc8VMSep+lOUSC/RVKaBqw==}
     engines: {node: '>=12'}
     hasBin: true
+
+  isexe@3.1.1:
+    resolution: {integrity: sha512-LpB/54B+/2J5hqQ7imZHfdU31OlgQqx7ZicVlkm9kzg9/w8GKLEcFfJl/t7DCEDueOyBAD6zCCwTO6Fzs0NoEQ==}
+    engines: {node: '>=16'}
 
   minimatch@5.1.6:
     resolution: {integrity: sha512-lKwV/1brpG6mBUFHtb7NUmtABCb2WZZmm2wNiOA5hAb8VdCS4B3dtMWyvcoViccwAW/COERjXLt0zP1zXUN26g==}
@@ -217,6 +230,11 @@ packages:
 
   vscode-languageserver-types@3.17.5:
     resolution: {integrity: sha512-Ld1VelNuX9pdF39h2Hgaeb5hEZM2Z3jUrrMgWQAu82jMtZp7p3vJT3BzToKtZI7NgQssZje5o0zryOrhQvzQAg==}
+
+  which@4.0.0:
+    resolution: {integrity: sha512-GlaYyEb07DPxYCKhKzplCWBJtvxZcZMrL+4UkrTSJHHPyZU4mYYTv3qaOe77H7EODLSSopAUFAc6W8U4yqvscg==}
+    engines: {node: ^16.13.0 || >=18.0.0}
+    hasBin: true
 
 snapshots:
 
@@ -297,6 +315,8 @@ snapshots:
 
   '@types/vscode@1.92.0': {}
 
+  '@types/which@3.0.4': {}
+
   balanced-match@1.0.2: {}
 
   brace-expansion@2.0.1:
@@ -329,6 +349,8 @@ snapshots:
       '@esbuild/win32-ia32': 0.21.5
       '@esbuild/win32-x64': 0.21.5
 
+  isexe@3.1.1: {}
+
   minimatch@5.1.6:
     dependencies:
       brace-expansion: 2.0.1
@@ -353,3 +375,7 @@ snapshots:
       vscode-languageserver-types: 3.17.5
 
   vscode-languageserver-types@3.17.5: {}
+
+  which@4.0.0:
+    dependencies:
+      isexe: 3.1.1
