@@ -6,7 +6,7 @@
   "publisher": "gplane",
   "repository": "g-plane/vscode-dprint",
   "license": "MIT",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "engines": {
     "vscode": "^1.90.0"
   },
